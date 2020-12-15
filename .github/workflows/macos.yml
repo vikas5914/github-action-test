@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  k6_local_test:
+    name: Mozjpeg Brew Test
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Install Mozjpeg by homebrew
+        run: brew install mozjpeg
+
+      - name: Local mozjpeg test
+        run: cjpeg -version
